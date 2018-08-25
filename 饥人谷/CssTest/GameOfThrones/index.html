@@ -1,0 +1,475 @@
+<!DOCTYPE html>
+<html lang="zh">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        <title>Game of Thrones</title>
+        <link href="css/common.css" rel="stylesheet">
+        <link rel="stylesheet" href="http://at.alicdn.com/t/font_808243_3k6kr5hln1j.css">
+        <link rel="stylesheet" href="http://at.alicdn.com/t/font_808613_f9pj01uupgm.css">
+        <style>
+          html, body {
+              height:100%;
+          }
+          header {
+              position: relative;
+              height:100%;
+              min-height:600px;
+              background:#000 url(http://chenleoxx.github.io/demos/companypage/images/首页2.jpg)center 
+              center no-repeat;
+              background-size:cover;
+          }
+          /* 遮罩 */
+          /* header::before {
+              content: "";
+              display: block;
+              position: absolute;
+              left: 0;
+              top: 0;
+              bottom: 0;
+              right: 0;
+              background: rgba(255,255,255,0.3);
+          } */
+          header .logo{
+              color: #f7ba3e;
+              font-size: 32px;
+              float:left;
+              margin-top:10px;
+          }
+          header .nav{
+              float:right;
+          }
+          header .nav > li{
+              float: left;
+              margin:10px;
+          }
+          header .nav a{
+              color: #fff;
+              font-size: 16px;
+              display: inline-block;
+              border-radius:4px;
+              padding: 5px;
+          }
+          header .nav a:hover{
+              background: #f7ba3e;
+          }
+          header .intro {
+             position: absolute;
+             left: 50%;
+             top: 50%;
+             transform: translate(-50%,-50%) ;
+             color: #fff;
+             text-align: center;
+          }
+          header .intro h2 {
+              font-size: 32px;
+          }
+          header .intro h3 {
+              font-size: 46px;
+              margin-top: 20px;
+          }
+          header .intro .btn{
+              margin-top: 20px;
+          }
+          section {
+              margin-top: 30px;
+              text-align: center;
+          }
+          section>h2 {
+              font-size: 40px;
+          }
+          section>p{
+              margin-top: 10px;
+          }
+          section > ul .iconfont{
+              font-size: 60px;
+          }
+          section .family-intro > li {
+              float: left;
+              width: 33.33%;
+              padding:10px 20px;
+          }
+          section > ul p {
+              margin-top: 10px;
+          }
+          section .family figure{
+              width: calc(33.33% - 20px);
+              margin: 10px;
+              float: left;
+          }
+          section .family a {
+              display: block;
+              height:180px;
+          }
+          section .family img{
+              width: 100%;
+              height: 100%;
+          }
+          section .family figcaption {
+              font-size: 18px;
+              font-weight: bold;
+              margin-top: 10px;
+          }
+          section .family p {
+              color: #666;
+              margin-top: 10px;
+          }
+          section .timeline > li{
+              margin-top:40px;
+              position: relative;
+          }
+          section .timeline > li:nth-child(odd) {
+              padding-right: calc(50% - 50px);
+              text-align: right;
+          }
+          section .timeline > li::after{
+              content:"";
+              display:block;
+              clear:both;
+          }
+          section .timeline img,
+           section .timeline .img {
+              width: 100px;
+              height: 100px;
+              border-radius: 50%;
+              border: 5px solid lightblue;
+          }
+          section .timeline .img {
+              display:inline-block;
+              text-align:center;
+              padding-top:22px;
+              font-size: 12px;
+              background-color: lightblue;
+          }
+          section .timeline > li:nth-child(odd) dl{
+              margin-right: 120px;
+          }
+          section .timeline > li:nth-child(odd) img{
+              float: right;
+          }
+          section .timeline > li:nth-child(even){
+              padding-left: calc(50% - 50px);
+              text-align: left;
+          }
+          section .timeline > li:nth-child(even) dl{
+              margin-left:120px;
+          }
+          section .timeline > li:nth-child(even) img{
+              float: left;
+          }
+          section .timeline dt {
+              font-size: 16px;
+              font-weight: bold;
+          }
+          section .timeline > li::before{
+              content:"";
+              position: absolute;
+              left: 50%;
+              top: 100px;
+              margin-left:-2px;
+              display: inline-block;
+              height: 70px;
+              width: 4px;
+              background-color: lightblue;
+          }
+         section .timeline > li:last-child::before{
+             height: 0;
+         }
+         section .film-personnel {
+             padding-top:100px;
+         }
+         section .film-personnel > li {
+             float: left;
+             width: 33.33%;
+             padding:0 20px;
+         }
+         section .film-personnel > li img{
+             width:220px;
+             height:220px;
+             border-radius: 50%;
+             border:4px solid #fff;
+         }
+         section .film-personnel > li h3{
+             margin-top: 10px;
+         }
+         section .film-personnel > li p {
+             margin-top:10px;
+         }
+         section .film-personnel > li span{
+             display: inline-block;
+             font-size: 32px;
+             margin-right:10px;
+         }
+         section .film-personnel > li span:hover {
+             color:#f2d057;
+         }
+         section  .long-text{
+             padding:30px 50px;
+             width:900px;
+             margin: 0 auto;
+             font-size: 16px;
+         }
+         footer .contact {
+             background:#000 url(http://chenleoxx.github.io/demos/companypage/images/首页2.jpg)center 
+              center no-repeat;
+             height:100%;
+             min-height:600px;
+             background-size:cover;
+             text-align:center;
+         }
+         footer .contact h2 {
+             padding-top:200px;
+             font-size: 46px;
+             color:#fff;
+         }
+         footer .contact p {
+             margin-top:10px; 
+         }
+         footer .contact .message-left {
+             float:left;
+             padding-left:130px;
+         }
+         footer .contact .message-left>input{
+             display: block;
+             margin-top:26px;
+             width: 510px;
+             height: 50px;
+             border-radius: 5px;
+             padding-left:5px;
+         }
+         footer .contact .message-right {
+             margin-left:660px;
+         }
+         footer .contact .message-right textarea{
+             margin-top: 26px;
+             width: 500px;
+             height: 204px;
+             resize: none;
+             border-radius: 5px;
+             padding:10px 0 0 5px;
+         }
+          footer .contact button {
+              margin-top:80px;
+              margin-bottom:80px;
+              width:200px;
+              height:60px;
+              background-color:#f2d057;
+              border-radius: 4px;
+              color: #fff;
+              font-size: 18px;
+              opacity: 0.9;
+              cursor:pointer;
+          }
+          footer .contact button:hover {
+              opacity: 1;
+          }
+          footer .copyright-icon {
+              margin-top:20px;
+              text-align: center;
+          }
+          footer .copyright-icon span{
+              font-size: 32px;
+              display: inline-block;
+              margin-right:5px;
+          }
+          footer a {
+              display: inline-block;
+              color:orange;
+              margin-right:5px;
+          }
+          footer .copyright {
+              text-align:center;
+              margin:20px;
+          }
+
+        </style>
+    </head>
+    <body>
+        <header>
+            <div class="navbar clearfix layout">
+                <a href="#" class="logo">Game of Thrones</a>
+                <ul class="nav">
+                    <li><a href="#">SERVICES</a></li>
+                    <li><a href="#">FAMILY</a></li>
+                    <li><a href="#">CHARACTER</a></li>
+                    <li><a href="#">TEAM</a></li>
+                    <li><a href="#">CONTACT</a></li>
+                </ul>
+            </div>
+            <div class="intro layout">
+                <h2>WINTER IS COMMING</h2>
+                <h3>ALONE WOLF DEATH, WOLVES LIVE.</h3>
+                <a href="" class="btn">Tell Me More</a>
+            </div>
+        </header>
+        <main class="layout">
+            <section>
+            <h2>冰与火之歌</h2>
+            <p>《冰与火之歌》的故事发生在一个虚幻的中世纪世界</p>
+            <ul class= " family-intro clearfix">
+                <li>
+                    <span class="iconfont icon-family1"></span>
+                    <h3>史塔克家族</h3>
+                    <p>史塔克家族的起源可以追溯到“筑城者”布兰登和远古的冬境之王</p>
+                </li>
+                <li>
+                    <span class="iconfont icon-family2"></span>
+                    <h3>兰尼斯特家族</h3>
+                    <p>金发白肤，高大俊美，兰尼斯特家族人体内流着在西方山陵峡谷间建立起强大王国的安达尔冒险者的血液</p>
+                </li>
+                <li>
+                    <span class="iconfont icon-family3"></span>
+                    <h3>拜拉席恩家族</h3>
+                    <p>拜拉席恩家族是王国数大家族中最年轻的一家，崛起于征服战争时期</p>
+                </li>
+            </ul>
+            </section>
+            <section>
+                <h2>FAMILY</h2>
+                <p>Lorem ipsum dolor sit amet consectetur.</p>
+                <div class="family clearfix">
+                    <figure>
+                        <a href="#">
+                            <img src="https://chenleoxx.github.io/demos/companypage/images/%E7%8B%BC%E5%AE%B62.jpg" alt="">
+                        </a>
+                        <figcaption>Winterfell:House Starks</figcaption>
+                        <P>Winter is coming</P>
+                    </figure>
+                    <figure>
+                        <a href="#">
+                            <img src="https://chenleoxx.github.io/demos/companypage/images/%E9%BE%99%E5%AE%B6.jpg" alt="">
+                        </a>
+                        <figcaption>King's landing:House Targaryen</figcaption>
+                        <P>Fire and Blood</P>
+                    </figure>
+                    <figure>
+                        <a href="#">
+                            <img src="https://chenleoxx.github.io/demos/companypage/images/%E7%8B%AE%E5%AE%B6.jpg" alt="">
+                        </a>
+                        <figcaption>Casterly Rock:House Lannister</figcaption>
+                        <P>Hear Me Roar!</P>
+                    </figure>
+                    <figure>
+                        <a href="#">
+                            <img src="https://chenleoxx.github.io/demos/companypage/images/%E8%91%9B%E9%9B%B7.jpg" alt="">
+                        </a>
+                        <figcaption>Pyke:House Greyjoy</figcaption>
+                        <P>We Do Not Sow</P>
+                    </figure>
+                    <figure>
+                        <a href="#">
+                            <img src="https://chenleoxx.github.io/demos/companypage/images/%E9%B9%BF%E5%AE%B6.jpg" alt="">
+                        </a>
+                        <figcaption>Storm's End:House Baratheon</figcaption>
+                        <P>Ours Is the Fury</P>
+                    </figure>
+                    <figure>
+                        <a href="#">
+                            <img src="https://chenleoxx.github.io/demos/companypage/images/%E8%89%BE%E7%90%B3%E5%AE%B6.jpg" alt="">
+                        </a>
+                        <figcaption>Eyrie:House Arryn</figcaption>
+                        <P>As High as Honor</P>
+                    </figure>
+                </div>
+            </section>
+            <section>
+                <h2>Time Line</h2>
+                <p>故事的发展曲线</p>
+                <ul class="timeline">
+                    <li>
+                        <img src="https://chenleoxx.github.io/demos/companypage/images/%E9%9B%AA%E8%AF%BA.jpg" alt="">
+                        <dl>
+                            <dt>Jon Snow</dt>
+                            <dd>基特·哈灵顿饰</dd>
+                            <dd>琼恩出生于伊耿历283 AC年，身份是临冬城公爵艾德·史塔克的私生子，在篡夺者战争结束后被从南方带回，并同艾德的嫡生子女一同在临冬城长大。他拥有一只患有白化症的冰原狼“白灵”。在小说故事的开始，琼恩北上加入守夜人去镇守绝境长城。</dd>
+                        </dl>
+                    </li>
+                    <li>
+                        <img src="https://chenleoxx.github.io/demos/companypage/images/%E9%BE%99%E6%AF%8D.jpg" alt="">
+                        <dl>
+                            <dt>Daenerys Targaryen</dt>
+                            <dd>艾米莉亚·克拉克饰</dd>
+                            <dd>丹妮莉丝·坦格利安（Daenerys Targaryen），也被称作“风暴降生”丹妮莉丝或者丹妮，是古老的坦格利安王朝最后的传人。她在童年时一直作为他人政治砝码，直到嫁给卓戈卡奥后，逐渐成长为一个令人敬畏的女王和奴隶解放者。</dd>
+                        </dl>
+                    </li>
+                <li>
+                    <img src="https://chenleoxx.github.io/demos/companypage/images/%E7%91%9F%E6%9B%A6.jpg" alt="">
+                    <dl>
+                        <dt>Cersei Lannister</dt>
+                        <dd>琳娜·海蒂饰</dd>
+                        <dd>瑟曦·兰尼斯特（Cersei Lannister）是泰温公爵和乔安娜夫人的长女，是詹姆·兰尼斯特的孪生姐姐。在篡夺者战争之后她嫁给了新王劳勃·拜拉席恩，成为七大王国的王后</dd>
+                    </dl>
+                </li>
+                    <li>
+                        <img src="https://chenleoxx.github.io/demos/companypage/images/%E5%BC%82%E9%AC%BC.jpg" alt="">
+                        <dl>
+                            <dt>Night's King</dt>
+                            <dd>夜 王</dd>
+                            <dd>夜王（Night's King）是登场于《冰与火之歌》的虚拟人物，是一位具有传奇色彩的异鬼军团总司令。关于夜王的唯一信息来自布兰·史塔克在长夜堡回忆起的老奶妈的故事，在故事中夜王来自史塔克家族。</dd>
+                        </dl>
+                    </li>
+                    <li>
+                       <span class="img">STAY TUNED FOR NEXT SEASON</span>
+                    </li>
+                </ul>
+            </section>
+            <section>
+                <h2>TEAM</h2>
+                <p>Lorem ipsum dolor sit amet consectetur.</p>
+                <ul class="film-personnel clearfix">
+                    <li>
+                        <img src="https://chenleoxx.github.io/demos/companypage/images/%E7%BC%96%E5%89%A7.jpg" alt="">
+                        <h3>David Benioff</h3>
+                        <p>Screenwriter</p>
+                        <span class="iconfont icon-twitter"></span>
+                        <span class="iconfont icon-facebook"></span>
+                        <span class="iconfont icon-info"></span>
+                    </li>
+                    <li>
+                        <img src="https://chenleoxx.github.io/demos/companypage/images/%E5%AF%BC%E6%BC%94.jpg" alt="">
+                        <h3>George R·R Martin</h3>
+                        <p>Writer</p>
+                        <span class="iconfont icon-twitter"></span>
+                        <span class="iconfont icon-facebook"></span>
+                        <span class="iconfont icon-info"></span>
+                    </li>
+                    <li>
+                        <img src="https://chenleoxx.github.io/demos/companypage/images/%E6%BC%94%E5%91%98.jpg" alt="">
+                        <h3>Kit Harington&Emilia</h3>
+                        <p>Actor</p>
+                        <span class="iconfont icon-twitter"></span>
+                        <span class="iconfont icon-facebook"></span>
+                        <span class="iconfont icon-info"></span>
+                    </li>
+                </ul>
+                <p class="long-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aut eaque, laboriosam veritatis, quos non quis ad perspiciatis,
+                    totam corporis ea, alias ut unde.</p>
+            </section>
+        </main>
+        <footer >
+            <div class="contact">
+                <h2>CONTACT US</h2>
+                <p>Lorem ipsum dolor sit amet consectetur.</p>
+                <div class="message-left">
+                    <input type="text" placeholder="YOUR NAME">
+                    <input type="password" name="password" placeholder="YOUR PASSWORD">
+                    <input type="email" name="email" placeholder="YOUR EMAIL">
+                </div>
+                <div class="message-right">
+                    <textarea name="text" placeholder="YOUR MESSAGE"></textarea>
+                </div>
+                <button>SENT MESSAGE</button>
+            </div>
+            <div class="copyright-icon">
+                <span class="iconfont icon-twitter"></span>
+                <span class="iconfont icon-facebook"></span>
+                <span class="iconfont icon-info"></span>
+            </div>
+            <div class="copyright">
+                <a herf="#">Privacy Policy Terms of Use </a>
+                <span>Copyright © Your Website 2014</span>
+            </div>
+        </footer>
+    </body>
+</html>
