@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <link rel="stylesheet" href="./css/index.css">
+    <script src="./js/index.js"></script>
+</head>
+<body>
+    <ul class="ct">
+        <li data-img="img/1.png" >鼠标放置查看图片1</li>
+        <li data-img="img/2.png">鼠标放置查看图片2</li>
+        <li data-img="img/3.png">鼠标放置查看图片3</li>
+    </ul>
+    <div class="img-preview">
+        <img src="" alt="">
+    </div>
+
+    
+    <script>
+        
+            var li =document.getElementsByTagName("li");
+            var imgPre = document.querySelector("img");
+            console.log(li);
+            for(var i=0;i<li.length;i++){
+               (function(i){
+                   li[i].onmouseover = function(){
+                       imgPre.src = li[i].getAttribute("data-img");
+                   }
+               } )(i)
+                
+            }
+            
+        
+      
+    
+    </script>
+  
+</body>
+</html>
