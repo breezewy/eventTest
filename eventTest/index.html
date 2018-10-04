@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        div{
+            border: 1px solid #ccc;
+            padding:20px;
+        }
+
+    
+    </style>
+</head>
+<body>
+    <div class="container">container
+        <div class="box">box
+            <div class="target">target</div>
+        </div>
+    </div>
+
+    <script>
+        var con = document.querySelector(".container");
+        var box = document.querySelector(".box");
+        var tar = document.querySelector(".target");
+        con.addEventListener("click",function(e){
+            console.log("container clcik in 事件捕获"); 
+        },true)
+        box.addEventListener("click", function (e) {
+            // 阻止box后边的事件捕获
+            // e.stopPropagation();
+            console.log("box clcik in 事件捕获");
+        }, true)
+        tar.addEventListener("click", function (e) {
+            console.log("target clcik in 事件捕获");
+        }, true)
+
+        con.addEventListener("click", function (e) {
+            console.log("container clcik in 事件冒泡");
+        }, false)
+        box.addEventListener("click", function (e) {
+            // 阻止box后边的事件冒泡
+            e.stopPropagation();
+            console.log("box clcik in 事件冒泡");
+        }, false)
+        tar.addEventListener("click", function (e) {
+            console.log("target clcik in 事件冒泡");
+        }, false)
+
+
+    
+    
+    </script>
+</body>
+</html>
